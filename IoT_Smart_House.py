@@ -13,13 +13,13 @@ from email.mime.text import MIMEText
 from matplotlib import pyplot as plt
 
 #sending myself emails for commands and notifications
-sourceEmail = 'iotstudentlakicevic@gmail.com'
-destinationEmail = 'iotstudentlakicevic@gmail.com'
+sourceEmail = 'YOUR_EMAIL'
+destinationEmail = 'YOUR_EMAIL'
 
 #channel id, url and APIs for thingspeak read/writes
-CHANEL_ID = '1546626'
-API_KEY_WRITE = '75ILMW0CYJT4VFRV'
-API_KEY_READ = '7M24SZO4B947AYBV'
+CHANEL_ID = 'YOUR_CHANNEL_ID'
+API_KEY_WRITE = 'YOUR_WRITE_API_KEY'
+API_KEY_READ = 'YOUR_READ_API_KEY'
 BASE_URL = 'https://api.thingspeak.com'
 
 #this is for number of results to be read from the thingspeak API; default value 30
@@ -30,7 +30,7 @@ WRITE_URL = '{}/update?api_key={}'.format(BASE_URL, API_KEY_WRITE)
 READ_CHANNEL_URL = '{}/channels/{}/feeds.json?api_key={}'.format(BASE_URL, CHANEL_ID, API_KEY_READ)
 
 #serial communication with arduino
-ser = serial.Serial('COM5')
+ser = serial.Serial('SERIAL_PORT')
 #this is to ensure the serial communication is open
 if not ser.is_open:
     ser.open()
