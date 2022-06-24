@@ -368,7 +368,7 @@ def sendNotification(notificationMessage):
     notification['To'] = destinationEmail
     server = smtplib.SMTP('smtp.gmail.com',587)
     server.starttls()
-    r = server.login(sourceEmail, '2018230062singidunum')
+    r = server.login(sourceEmail, 'password')
     r = server.sendmail(sourceEmail, destinationEmail, notification.as_string())
     server.quit()
 
