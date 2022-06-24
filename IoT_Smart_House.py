@@ -50,7 +50,6 @@ numberOfDetectionsData = []
 
 almDurationTime = []
 smDurationTime = []
-illuminationTime = []
 temperatureTime = []
 numberOfDetectionsTime = []
 
@@ -132,25 +131,25 @@ def sendReport():
     plt.ylabel('Temperature °C')
     plt.plot(temperatureTime,temperatureData)
     #saving those figures into pngs, that will be later sent by email
-    plt.savefig('C:\\Users\\savva\\OneDrive\\Desktop\\temperature_data.png')
+    plt.savefig('fig_url')
     fig = plt.figure()
     plt.title('Illumination Data')
     plt.ylabel('Illuminaiton, Lux')
     plt.plot(illuminationTime, illuminationData)
-    plt.savefig('C:\\Users\\savva\\OneDrive\\Desktop\\illumination_data.png')
+    plt.savefig('fig_url')
     fig = plt.figure()
     plt.title('Number of Motions Detected per Hour')
     plt.ylabel('Detected Motions')
     plt.stem(averageDetectionsPerHour)
-    plt.savefig('C:\\Users\\savva\\OneDrive\\Desktop\\motion_data.png')
+    plt.savefig('fig_url')
     #opening and reading images for the email report
-    imageTemperature = open('C:\\Users\\savva\\OneDrive\\Desktop\\temperature_data.png', 'rb')
+    imageTemperature = open('fig_url', 'rb')
     msgTemperature = MIMEImage(imageTemperature.read())
     imageTemperature.close()
-    imageIllumination = open('C:\\Users\\savva\\OneDrive\\Desktop\\illumination_data.png', 'rb')
+    imageIllumination = open('fig_url', 'rb')
     msgIllumination = MIMEImage(imageIllumination.read())
     imageIllumination.close()
-    imageMotion = open('C:\\Users\\savva\\OneDrive\\Desktop\\motion_data.png', 'rb')
+    imageMotion = open('fig_url', 'rb')
     msgMotion = MIMEImage(imageMotion.read())
     imageMotion.close()
     #prepairing the email message using html
@@ -209,7 +208,7 @@ def sendReport():
     #accessing and logging into the email address
     server = smtplib.SMTP('smtp.gmail.com',587)
     server.starttls()
-    r = server.login(sourceEmail,'2018230062singidunum')
+    r = server.login(sourceEmail,'password')
     r = server.sendmail(sourceEmail,destinationEmail,message.as_string())
     server.quit()
 
