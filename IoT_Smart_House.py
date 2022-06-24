@@ -431,7 +431,7 @@ receivingThread  = Thread(target=receive, args=(ser, ))
 receivingThread.start()
 
 email = imaplib.IMAP4_SSL('imap.gmail.com')
-email.login('iotstudentlakicevic@gmail.com', '2018230062singidunum')
+email.login('email', 'password')
 
 #this is the thread of checking emails for commands
 checkEmailThread  = Thread(target=checkMail, args=(email, ser, ))
