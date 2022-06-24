@@ -145,7 +145,7 @@ void smartHouse(){
       }
 //      identical to activating cooling, but the values and notifications are reversed
       if(averageTemperature<=27 && autoTemp){
-        if(heaterStatus = LOW){
+        if(heaterStatus == LOW){
           dcStatus = LOW;
           heaterStatus = HIGH;
           digitalWrite(DC_RELAY,dcStatus);
